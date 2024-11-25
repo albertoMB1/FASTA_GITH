@@ -1,10 +1,9 @@
-#import vcf
+
 import vcfpy
 import re
 import subprocess
 import matplotlib.pyplot as plt
 import json
-#import pprint
 import time
 import orjson
 
@@ -29,7 +28,7 @@ def escapar_caracteres(cadena):
     return cadena_escapada
 
 
-# Alberto
+
 def encuentra_param_vcf4(nombre_archivo):
     """
     Lee el contenido de un archivo y encuentra todas las coincidencias de un patrón definido.
@@ -65,7 +64,7 @@ def encuentra_param_vcf4(nombre_archivo):
 
 
 
-# Alberto
+
 def lector_vcf(vcf_path):
 
     """
@@ -95,7 +94,6 @@ def lector_vcf(vcf_path):
     """
     return  vcfpy.Reader(open(vcf_path, 'r'))
 
-# Alberto
 def numero_datos_vcf(nombre_archivo):
     """
     Cuenta el número de registros de datos en un archivo VCF, excluyendo las líneas de metadatos.
@@ -130,7 +128,7 @@ def numero_datos_vcf(nombre_archivo):
     return len(lineas_datos)
 
 
-# Alberto
+
 def buscar_id_en_vcf(ruta:str, numeroID)->dict:
     """
     Busca una ID específica en un archivo VCF y extrae información relacionada.
@@ -196,7 +194,7 @@ def buscar_id_en_vcf(ruta:str, numeroID)->dict:
         print(f'La ID {numeroID} no se encontró en el archivo.')
         return None
 
-# Alberto
+
 def buscar_pos_en_vcf(ruta:str, numeroPOS)->dict:
     """
     Busca entradas específicas por su número de POS en un archivo VCF y extrae información relevante de ellas.
@@ -265,7 +263,6 @@ def buscar_pos_en_vcf(ruta:str, numeroPOS)->dict:
         return None
     
 
-# Alberto
 def buscar_campo_en_vcf(ruta:str, cadena:str, elemento:str)->dict:
     """
     Busca un elemento específico que contenga un SUBCAMPO del CAMPO INFO dentro de un archivo VCF
@@ -352,7 +349,6 @@ def buscar_campo_en_vcf(ruta:str, cadena:str, elemento:str)->dict:
         return None
     
 
-# Alberto
 def dibuja_grafica_datos(dic, total_datos):
     """
     Genera y muestra gráficas de barras para cada clave en un diccionario, comparando el número
@@ -407,7 +403,7 @@ def dibuja_grafica_datos(dic, total_datos):
         plt.show()
 
 
-# Alberto
+
 def extraer_cabeceras_vcf(nombre_archivo:str)->str:
     """
     Extrae todas las líneas de cabecera de un archivo VCF y las guarda en un string.
@@ -434,7 +430,7 @@ def extraer_cabeceras_vcf(nombre_archivo:str)->str:
     return cabeceras
 
 
-# Alberto
+
 def buscar_campo_en_vcf_string(ruta:str, cadena:str, elemento:str)->str:
     """
     Busca un elemento específico que contenga un SUBCAMPO del CAMPO INFO dentro de un archivo VCF
@@ -491,7 +487,7 @@ def buscar_campo_en_vcf_string(ruta:str, cadena:str, elemento:str)->str:
         return None
 
 
-# Alberto
+
 def guardar_string_como_vcf(contenido:str, nombre_archivo_destino:str)->None:
     """
     Guarda una cadena de texto en un archivo con extensión .vcf.
@@ -523,11 +519,7 @@ def guardar_string_como_vcf(contenido:str, nombre_archivo_destino:str)->None:
     
     print(f"El archivo '{nombre_archivo_destino}' ha sido guardado satisfactoriamente.")
 
-# Alberto
-# def guardar_dicc_json(ruta:str, diccionario:dict)->None:
-#     with open(ruta, 'w', encoding='utf-8') as archivo:
-#         json.dump(diccionario, archivo, ensure_ascii=False, indent=4)
-#     print(f"Diccionario guardado en {ruta}")
+
 
 # Alberto
 def obtain_all_ID_inVCF(ruta:str)->set:
@@ -553,7 +545,7 @@ def obtain_all_ID_inVCF(ruta:str)->set:
 
     return conjunto
 
-# Alberto
+
 def obtain_all_names_chrom_inVCF(ruta:str)->set:
     """
     Obtiene un conjunto único de nombres o identificadores desde un archivo VCF
@@ -577,7 +569,7 @@ def obtain_all_names_chrom_inVCF(ruta:str)->set:
 
     return conjunto
 
-# Alberto
+
 def busca_todos_valores_en_un_subcampo_de_info(ruta:str, subcampo:str)->set:
     """
     Busca todos los valores únicos para un subcampo específico dentro del campo INFO de un archivo VCF.

@@ -1,15 +1,13 @@
 from Bio import Entrez
-#import vcf
+
 import math
 import re
 from datetime import datetime
 import os
-#from . import vcf41 as vc
 import json
 import vcfpy
 from collections import Counter
 from collections import defaultdict
-#from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import ProcessPoolExecutor
 
 
